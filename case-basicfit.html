@@ -40,6 +40,9 @@
     gap:16px;padding:15px 28px;background:rgba(251,246,239,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
   .brand{font-family:var(--serif);font-weight:800;font-size:1.3rem;letter-spacing:.2px}
   .brand .dot{color:var(--orange)}
+  .tnav{display:flex;align-items:center;gap:12px}
+  .lang{display:inline-flex;align-items:center;font-weight:700;font-size:.8rem;letter-spacing:.5px;padding:7px 12px;border:1.5px solid rgba(0,0,0,.2);border-radius:999px;color:inherit;transition:.2s}
+  .lang:hover{background:rgba(0,0,0,.06)}
   .back{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:.9rem;color:var(--orange-deep);
     padding:8px 16px;border:1.5px solid var(--coral-200);border-radius:999px;transition:.2s}
   .back:hover{background:var(--orange);border-color:var(--orange);color:#fff;transform:translateY(-1px)}
@@ -185,10 +188,10 @@
 
   <header class="topbar">
     <a class="brand" href="index.html">Alice Bonneau<span class="dot">.</span></a>
-    <a class="back" href="index.html#projects">
+    <div class="tnav"><a class="lang" href="case-basicfit-fr.html">FR</a><a class="back" href="index.html#projects">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
       Back to portfolio
-    </a>
+    </a></div>
   </header>
 
   <!-- HERO -->
