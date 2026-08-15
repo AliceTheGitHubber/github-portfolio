@@ -29,7 +29,7 @@
     --sans:"Poppins",system-ui,-apple-system,sans-serif;
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;font-size:93.75%}
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
   body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased}
   a{color:inherit;text-decoration:none}
@@ -50,9 +50,9 @@
   .back svg{width:14px;height:14px}
 
   /* layout */
-  section{padding:76px 24px}
+  section{padding:64px 24px}
   .measure{max-width:760px;margin:0 auto}
-  .wide{max-width:1040px;margin:0 auto}
+  .wide{max-width:960px;margin:0 auto}
   .eyebrow{font-weight:600;letter-spacing:2.5px;text-transform:uppercase;font-size:.76rem;color:var(--violet-deep);margin-bottom:22px}
   h1{font-family:var(--serif);font-weight:800;line-height:1.05;letter-spacing:-.5px;
     font-size:clamp(2.4rem,6vw,4.1rem);margin-bottom:28px}
@@ -79,7 +79,8 @@
   .shot span{font-size:.86rem;color:var(--muted)}
   .shot.tall{min-height:420px}.shot.short{min-height:200px}
   .shot-img{margin-top:14px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:0 16px 44px rgba(60,25,110,.07);overflow:hidden}
-  .shot-img img{width:100%;height:auto;display:block;border-radius:6px}
+  .shot-img img{width:auto;max-width:100%;height:auto;max-height:72vh;margin:0 auto;display:block;border-radius:6px}
+  .pair img{max-height:60vh;width:auto;max-width:100%}
   .dark .shot-img{border-color:rgba(255,255,255,.1)}
   .cap{margin-top:14px;font-size:.86rem;color:var(--muted);text-align:center;max-width:70ch;margin-left:auto;margin-right:auto}
   @media (max-width:520px){.shot-img{padding:12px}}
@@ -166,6 +167,10 @@
   .gold{color:#D9A404}
   .metric .big{color:#D9A404}
   .tool{background:#ece6f7;font-weight:700}
+  #lb{display:none;position:fixed;inset:0;background:rgba(10,10,14,.9);z-index:200;align-items:center;justify-content:center;padding:24px;cursor:zoom-out}
+  #lb img{max-width:min(1100px,94vw);max-height:92vh;border-radius:12px;box-shadow:0 24px 70px rgba(0,0,0,.55)}
+  .shot-img img,.pair img{cursor:zoom-in;transition:transform .15s}
+  .shot-img img:hover,.pair img:hover{transform:scale(1.01)}
 </style>
 </head>
 <body>
@@ -355,5 +360,14 @@
     <p class="small">Holaspirit · Governance labeling — Case 02 · Product design</p>
   </footer>
 
+
+  <div id="lb"><img id="lbimg" alt="Enlarged image"></div>
+  <script>
+  (function(){var lb=document.getElementById('lb'),im=document.getElementById('lbimg');
+   document.addEventListener('click',function(e){
+     if(e.target.tagName==='IMG'&&e.target.closest('.shot-img,.pair')){im.src=e.target.src;lb.style.display='flex';}
+     else if(e.target.id==='lb'||e.target.id==='lbimg'){lb.style.display='none';}});
+   document.addEventListener('keydown',function(e){if(e.key==='Escape')lb.style.display='none';});})();
+  </script>
 </body>
 </html>
