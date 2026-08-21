@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Assignation aux projets — Alice Bonneau</title>
-<meta name="description" content="Étude de cas : un système d'assignation inter-cercles pour le modèle de gouvernance de Holaspirit.">
+<meta name="description" content="Étude de cas : un système d'assignation inter cercles pour le modèle de gouvernance de Holaspirit.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -69,6 +69,8 @@
   .meta{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin-top:44px;padding-top:34px;border-top:1px solid var(--line)}
   .meta dt{font-weight:600;text-transform:uppercase;letter-spacing:1.2px;font-size:.7rem;color:var(--rasp);margin-bottom:8px}
   .meta dd{font-size:.95rem;color:#3d2d32}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+  .tag{font-size:.72rem;font-weight:600;letter-spacing:.6px;text-transform:uppercase;padding:5px 12px;border:1px solid var(--rose-200);border-radius:999px;color:var(--wine)}
 
   /* ---------- screen slots ---------- */
   .shot{margin-top:14px;border:2px dashed var(--rose-200);background:
@@ -238,15 +240,18 @@
   <!-- HERO -->
   <section>
     <div class="measure">
-      <p class="eyebrow">Cas 01 · Holaspirit — Product design · UX/UI · Gestion de projet</p>
+      <p class="eyebrow">Cas 01 · Holaspirit · Product design · UX/UI · Gestion de projet</p>
       <h1>Quand le travail traverse les équipes, quelqu'un doit toujours savoir <span class="hl">qui en est responsable.</span></h1>
-      <p class="lead">Holaspirit fonctionne sur des cercles et des rôles, un modèle de gouvernance où chaque tâche a un propriétaire clair. Ouvrir les projets à la collaboration entre cercles a rompu cette clarté. Voici le système d'assignation qui a permis aux équipes de travailler au-delà des frontières sans perdre de vue qui fait quoi.</p>
+      <p class="lead">Holaspirit fonctionne sur des cercles et des rôles, un modèle de gouvernance où chaque tâche a un propriétaire clair. Ouvrir les projets à la collaboration entre cercles a rompu cette clarté. Voici le système d'assignation qui a permis aux équipes de travailler au delà des frontières sans perdre de vue qui fait quoi.</p>
       <dl class="meta">
         <div><dt>Rôle</dt><dd>Product Designer : de la recherche à l'UI</dd></div>
         <div><dt>Produit</dt><dd>Holaspirit · Échelle entreprise</dd></div>
-        <div><dt>Périmètre</dt><dd>Système d'assignation, multi-module</dd></div>
+        <div><dt>Périmètre</dt><dd>Système d'assignation, multi module</dd></div>
         <div><dt>Statut</dt><dd>Livré</dd></div>
       </dl>
+      <div class="tags">
+        <span class="tag">UX design</span><span class="tag">UI design</span><span class="tag">Gouvernance</span><span class="tag">Gestion de projet</span>
+      </div>
     </div>
   </section>
 
@@ -270,15 +275,16 @@
   <section class="dark">
     <div class="measure">
       <p class="kicker">Le problème</p>
-      <h2>Le travail inter-équipes a brouillé la seule chose que les cercles étaient censés garder claire : <span class="hl">la responsabilité.</span></h2>
+      <h2>Le travail inter équipes a brouillé la seule chose que les cercles étaient censés garder claire : <span class="hl">la responsabilité.</span></h2>
       <div class="prose"><p>Dès qu'un projet étendait les cercles, la coordination commençait à se dégrader de quatre manières prévisibles.</p></div>
       <div class="problems">
-        <div class="pcard"><div class="n">01</div><h3>Qui en est responsable ?</h3><p>Avec plusieurs cercles sur un même projet, il n'était plus évident de savoir qui était responsable de quelle tâche.</p></div>
-        <div class="pcard"><div class="n">02</div><h3>Difficile de voir comment tout s'articulait</h3><p>Rôles, cercles et membres étaient mélangés, si bien que leurs relations au sein d'un projet étaient floues.</p></div>
-        <div class="pcard"><div class="n">03</div><h3>Verrouillé sur un seul cercle</h3><p>Chaque assignation était enfermée dans un seul cercle, bloquant les nouveaux flux inter-équipes.</p></div>
-        <div class="pcard"><div class="n">04</div><h3>La même tâche, deux fois</h3><p>Sans visibilité entre les équipes, le même travail était pris en charge par deux personnes.</p></div>
+        <div class="pcard"><div class="n">01 · Responsabilité</div><h3>Qui en est responsable ?</h3><p>Avec plusieurs cercles sur un même projet, il n'était plus évident de savoir qui était responsable de quelle tâche.</p></div>
+        <div class="pcard"><div class="n">02 · Visibilité</div><h3>Difficile de voir comment tout s'articulait</h3><p>Rôles, cercles et membres étaient mélangés, si bien que leurs relations au sein d'un projet étaient floues.</p></div>
+        <div class="pcard"><div class="n">03 · Échelle</div><h3>Verrouillé sur un seul cercle</h3><p>Chaque assignation était enfermée dans un seul cercle, bloquant les nouveaux flux inter équipes.</p></div>
+        <div class="pcard"><div class="n">04 · Doublons</div><h3>La même tâche, deux fois</h3><p>Sans visibilité entre les équipes, le même travail était pris en charge par deux personnes.</p></div>
       </div>
-      <p class="note">En plus de cela, même une seule assignation demandait plusieurs étapes et changements de contexte : le flux lui-même était donc lent, avant même que le travail inter-cercles ne vienne le compliquer.</p>
+      <p class="note">En plus de cela, même une seule assignation demandait plusieurs étapes et changements de contexte : le flux lui-même était donc lent, avant même que le travail inter cercles ne vienne le compliquer.</p>
+      <p class="note">Regroupé à partir d'entretiens utilisateurs couvrant des rôles du quotidien. Les frustrations individuelles sont rassemblées en schémas partagés.</p>
     </div>
   </section>
 
@@ -292,8 +298,8 @@
     <div class="wide">
       <div class="cd">
         <div class="row">
-          <div class="c"><p class="lbl">Contrainte 01</p><h4>La gouvernance ne peut pas être rompue</h4><p>Les assignations inter-cercles ne pouvaient jamais outrepasser les permissions des rôles ni la logique structurelle en dessous.</p></div>
-          <div class="d"><p class="lbl">Décision</p><h4>Le modèle d'assignation, toujours dans les règles</h4><p>Une interface unique qui reste fidèle à la gouvernance tout en s'adaptant au travail inter-équipes.</p><p class="trade">Compromis : plus de complexité d'interface, en échange de l'intégrité structurelle.</p></div>
+          <div class="c"><p class="lbl">Contrainte 01</p><h4>La gouvernance ne peut pas être rompue</h4><p>Les assignations inter cercles ne pouvaient jamais outrepasser les permissions des rôles ni la logique structurelle en dessous.</p></div>
+          <div class="d"><p class="lbl">Décision</p><h4>Le modèle d'assignation, toujours dans les règles</h4><p>Une interface unique qui reste fidèle à la gouvernance tout en s'adaptant au travail inter équipes.</p><p class="trade">Compromis : plus de complexité d'interface, en échange de l'intégrité structurelle.</p></div>
         </div>
         <div class="row">
           <div class="c"><p class="lbl">Contrainte 02</p><h4>Doit passer à l'échelle de centaines de rôles</h4><p>Les grandes organisations comptent des centaines d'utilisateurs et de rôles. L'interface doit rester gérable à cette échelle.</p></div>
@@ -386,7 +392,7 @@
           <p class="cap">Cliquer un membre pour voir ses équipes, ou le désassigner</p>
         </div>
       </div>
-      <figure class="shot-img funnel-fig" style="margin-top:26px"><svg class="funnel" viewBox="0 0 961 324" role="img" aria-label="CERCLE : toutes les équipes / RÔLES : dans ce cercle / MEMBRES : les personnes qu'il vous faut" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block">
+      <figure class="shot-img funnel-fig" style="margin-top:26px"><svg class="funnel" viewBox="0 0 961 324" role="img" aria-label="CERCLE : toutes les équipes / RÔLES : dans ce cercle / MEMBRES : les personnes dont vous avez besoin" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block">
   <rect x="1.5" y="1.5" width="958" height="321" rx="16" fill="#fff" stroke="#FFD3D9" stroke-width="1.5"/>
   <rect x="170.5" y="61" width="620" height="46" rx="10" fill="#FFE1E4" stroke="#FF9AAC"/>
   <rect x="260.5" y="139" width="440" height="46" rx="10" fill="#FFCCD1" stroke="#FF9AAC"/>
@@ -395,7 +401,7 @@
   <path d="M471.5 195 L489.5 195 L480.5 204 Z" fill="#6E3FB5"/>
   <text x="480.5" y="89" text-anchor="middle" font-family="Poppins,system-ui,-apple-system,sans-serif" font-size="14" font-weight="500" fill="#1A060F">CERCLE : toutes les équipes</text>
   <text x="480.5" y="167" text-anchor="middle" font-family="Poppins,system-ui,-apple-system,sans-serif" font-size="14" font-weight="500" fill="#1A060F">RÔLES : dans ce cercle</text>
-  <text x="480.5" y="245" text-anchor="middle" font-family="Poppins,system-ui,-apple-system,sans-serif" font-size="14" font-weight="500" fill="#1A060F">MEMBRES : les personnes qu'il vous faut</text>
+  <text x="480.5" y="245" text-anchor="middle" font-family="Poppins,system-ui,-apple-system,sans-serif" font-size="14" font-weight="500" fill="#1A060F">MEMBRES : les personnes dont vous avez besoin</text>
 </svg></figure>
       <p class="cap">Filtrage progressif : chaque choix restreint la liste suivante, si bien qu'une organisation comptant des centaines de rôles reste une sélection en deux étapes.</p>
     </div>
@@ -406,7 +412,7 @@
     <div class="measure">
       <p class="kicker">Comment j'ai travaillé avec l'IA</p>
       <h2>Rapide pour explorer. Précis pour décider.</h2>
-      <div class="prose"><p>Sur un produit de gouvernance, le jugement est tout le métier. Un mauvais modèle d'assignation casse les permissions. L'IA m'a aidée à chercher plus large, mais c'est moi qui tranchais, et chaque étape garde ces deux choses séparées.</p></div>
+      <div class="prose"><p><strong>L'IA dans le processus, pas au dessus.</strong> Sur un produit de gouvernance, le jugement est tout le métier. Un mauvais modèle d'assignation casse les permissions. L'IA m'a aidée à chercher plus large, mais c'est moi qui tranchais, et chaque étape garde ces deux choses séparées.</p></div>
     </div>
     <div class="wide">
       <div class="ai">
@@ -424,7 +430,7 @@
   <section>
     <div class="measure">
       <p class="kicker">Résultats</p>
-      <h2>Plus rapide, plus clair, et enfin une <span class="hl">solution inter-équipes.</span></h2>
+      <h2>Plus rapide, plus clair, et enfin une <span class="hl">solution inter équipes.</span></h2>
     </div>
     <div class="wide">
       <div class="metrics">
@@ -433,7 +439,7 @@
         <div class="metric"><div class="big">+43<span style="font-size:1.4rem">pts</span></div><div class="from">41% → 84%</div><p>Retours positifs lors des tests utilisateurs sur l'expérience d'assignation.</p></div>
       </div>
       <div class="quals">
-        <div class="qual"><h4>Collaboration inter-équipes</h4><p>Les projets peuvent désormais impliquer des membres, des rôles et des cercles de toute l'organisation.</p></div>
+        <div class="qual"><h4>Collaboration inter équipes</h4><p>Les projets peuvent désormais impliquer des membres, des rôles et des cercles de toute l'organisation.</p></div>
         <div class="qual"><h4>Visibilité transparente</h4><p>Le lien entre membres, rôles et cercles devient visible. Moins d'ambiguïté, moins de doublons.</p></div>
         <div class="qual"><h4>S'adapte aux autres modules</h4><p>Le même schéma se retrouve dans les réunions et les métriques, en restant performant pour les grandes organisations.</p></div>
       </div>
@@ -447,7 +453,7 @@
       <h2>La victoire, c'était une flexibilité qui restait claire sous pression.</h2>
       <div class="prose">
         <p>Flexibilité et clarté se font généralement concurrence. Plus le système est ouvert, plus il devient compliqué.</p>
-        <p>Le défi était d'avoir les deux : laisser les équipes <span class="hl">collaborer au-delà de leur cercle</span> sans perdre la clarté de la responsabilité que la gouvernance est censée protéger.</p>
+        <p>Le défi était d'avoir les deux : laisser les équipes <span class="hl">collaborer au delà de leur cercle</span> sans perdre la clarté de la responsabilité que la gouvernance est censée protéger.</p>
       </div>
     </div>
   </section>
@@ -457,7 +463,7 @@
       <a href="index-fr.html#projects">← Tous les projets</a>
       <a href="case-governance-fr.html">Suivant : Structurer la gouvernance →</a>
     </div>
-    <p class="small">Holaspirit · Assignation inter-cercles — Cas 01 · Product design</p>
+    <p class="small">Holaspirit · Assignation inter cercles · Cas 01 · Product design</p>
   </footer>
 
 
