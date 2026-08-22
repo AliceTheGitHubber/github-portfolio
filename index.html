@@ -69,6 +69,19 @@
   .nav a:hover::after,.nav a:focus-visible::after{width:100%}
   .nav a:focus-visible{outline:none}
 
+  /* NAV STRUCTURE (burger + mobile brand) */
+  .nav-brand{display:none;font-family:var(--serif);font-weight:700;font-size:1.15rem;letter-spacing:.2px;color:var(--white);text-decoration:none;white-space:nowrap}
+  .nav-brand::after{display:none}
+  .nav .nav-brand.active{color:var(--white)}
+  .nav-links{display:flex;align-items:center;gap:44px}
+  .nav-right{display:flex;align-items:center;gap:44px}
+  .nav-toggle{display:none;box-sizing:border-box;width:42px;height:42px;align-items:center;justify-content:center;border-radius:10px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.20);color:var(--white);cursor:pointer;padding:0}
+  .nav-toggle:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+  .nav-toggle svg{width:22px;height:22px}
+  .nav-toggle .icon-close{display:none}
+  .nav.open .nav-toggle .icon-open{display:none}
+  .nav.open .nav-toggle .icon-close{display:block}
+
   /* ---------- HERO ---------- */
   .cosmos{position:relative;background:radial-gradient(ellipse at 50% 18%,#241d63 0%,#191345 80%)}
   .hero{
@@ -317,6 +330,17 @@
     .hero-name{letter-spacing:-.5px}
     .socials a{width:46px;height:46px}
   }
+  /* HAMBURGER / MOBILE NAV */
+  @media (max-width:767.98px){
+    .nav{justify-content:space-between;gap:12px;flex-wrap:nowrap}
+    .nav-brand{display:inline-block}
+    .nav-right{gap:10px}
+    .nav-toggle{display:inline-flex}
+    .nav-links{position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;gap:0;background:var(--navy-deep);border-top:1px solid rgba(255,255,255,.15);overflow:hidden;max-height:0;transition:max-height .28s ease;padding:0 24px}
+    .nav.open .nav-links{max-height:70vh;padding:8px 24px 16px;box-shadow:0 18px 30px rgba(0,0,0,.35)}
+    .nav-links a{display:block;padding:13px 4px;font-size:1rem}
+    .lang-switch a{padding:5px 12px;font-size:13px}
+  }
   /* LANG-TOGGLE */
   .lang-switch{--lang-active-bg:#E09A46;--lang-active-text:#412402;--lang-idle-text:#D6D9F2;--lang-track-bg:rgba(255,255,255,.06);--lang-track-border:rgba(255,255,255,.20);display:inline-flex;align-items:center;gap:4px;padding:5px;border-radius:999px;background:var(--lang-track-bg);border:1px solid var(--lang-track-border)}
   .lang-switch a{padding:8px 18px;border-radius:999px;font:500 15px/1 system-ui,sans-serif;text-decoration:none;color:var(--lang-idle-text);transition:background-color .15s ease,color .15s ease}
@@ -335,10 +359,16 @@
 <body>
 
   <nav class="nav" id="nav">
-    <a href="#about">About me</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-    <div class="lang-switch" role="group" aria-label="Language"><a href="index-fr.html" lang="fr" hreflang="fr" aria-label="Passer en français">FR</a><a href="index.html" lang="en" hreflang="en" class="is-active" aria-current="true">EN</a></div>
+    <a class="nav-brand" href="#top">Alice Bonneau</a>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">About me</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-switch" role="group" aria-label="Language"><a href="index-fr.html" lang="fr" hreflang="fr" aria-label="Passer en français">FR</a><a href="index.html" lang="en" hreflang="en" class="is-active" aria-current="true">EN</a></div>
+      <button class="nav-toggle" id="navToggle" type="button" aria-controls="navLinks" aria-expanded="false" aria-label="Open menu"><svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg><svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg></button>
+    </div>
   </nav>
 
   <div class="cosmos">
@@ -540,6 +570,21 @@
     });
   }, {rootMargin:'-45% 0px -50% 0px'});
   spySections.forEach(s => spy.observe(s));
+</script>
+<script>
+  (function(){
+    var nav=document.getElementById('nav');
+    var btn=document.getElementById('navToggle');
+    if(!nav||!btn) return;
+    function setOpen(open){
+      nav.classList.toggle('open',open);
+      btn.setAttribute('aria-expanded',open?'true':'false');
+      btn.setAttribute('aria-label',open?'Close menu':'Open menu');
+    }
+    btn.addEventListener('click',function(){setOpen(!nav.classList.contains('open'));});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')setOpen(false);});
+    document.getElementById('navLinks').addEventListener('click',function(e){if(e.target.closest('a'))setOpen(false);});
+  })();
 </script>
 </body>
 </html>
