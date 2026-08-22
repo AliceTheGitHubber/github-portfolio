@@ -195,7 +195,11 @@
   .ai .did .t,.ai .dec .t{color:#2E2350}
   .ai .tool{background:#ece6f7;border-color:#d9d3ec;color:#2E2350}
   .ai-close{color:#2E2350}
-</style>
+  .back{white-space:nowrap}
+  .back .full{display:inline}
+  .back .short{display:none}
+  @media (max-width:520px){.back .full{display:none}.back .short{display:inline}}
+  </style>
 </head>
 <body>
 
@@ -203,7 +207,7 @@
     <a class="brand" href="index.html">Alice Bonneau<span class="dot">.</span></a>
     <div class="tnav"><a class="lang" href="case-basicfit.html">EN</a><a class="back" href="index.html#projects">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
-      Retour au portfolio
+      <span class="full">Retour au portfolio</span><span class="short">Portfolio</span>
     </a></div>
   </header>
 
