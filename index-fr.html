@@ -317,6 +317,14 @@
     .hero-name{letter-spacing:-.5px}
     .socials a{width:46px;height:46px}
   }
+  /* LANG-TOGGLE */
+  .lang-switch{--lang-active-bg:#E09A46;--lang-active-text:#412402;--lang-idle-text:#D6D9F2;--lang-track-bg:rgba(255,255,255,.06);--lang-track-border:rgba(255,255,255,.20);display:inline-flex;align-items:center;gap:4px;padding:5px;border-radius:999px;background:var(--lang-track-bg);border:1px solid var(--lang-track-border)}
+  .lang-switch a{padding:8px 18px;border-radius:999px;font:500 15px/1 system-ui,sans-serif;text-decoration:none;color:var(--lang-idle-text);transition:background-color .15s ease,color .15s ease}
+  .lang-switch a::after{display:none}
+  .lang-switch a:hover,.lang-switch a:focus-visible{background:rgba(255,255,255,.12)}
+  .lang-switch a:focus-visible{outline:2px solid var(--lang-active-bg);outline-offset:2px}
+  .lang-switch a.is-active{background:var(--lang-active-bg);color:var(--lang-active-text);cursor:default}
+  @media (prefers-reduced-motion:reduce){.lang-switch a{transition:none}}
   /* PAGE-OVERFLOW-GUARD */
   html{overflow-x:hidden}
   body{overflow-x:hidden;max-width:100%}
@@ -330,7 +338,7 @@
     <a href="#about">À propos</a>
     <a href="#projects">Projets</a>
     <a href="#contact">Contact</a>
-    <a class="lang" href="index.html">EN</a>
+    <div class="lang-switch" role="group" aria-label="Langue"><a href="index-fr.html" lang="fr" hreflang="fr" class="is-active" aria-current="true">FR</a><a href="index.html" lang="en" hreflang="en" aria-label="Switch to English">EN</a></div>
   </nav>
 
   <!-- ===================== HERO ===================== -->
