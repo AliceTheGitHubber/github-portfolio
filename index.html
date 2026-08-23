@@ -505,21 +505,40 @@
         </div>
       </div>
 
-      <div class="form-card reveal">
+      <form action="https://formspree.io/f/mbgreywy" method="POST" class="form-card reveal">
         <div class="field">
           <label for="name">Your name</label>
-          <input id="name" type="text" autocomplete="name">
+            <input 
+              id="name" 
+              name="name"
+              type="text" 
+              autocomplete="name"
+              required
+            >
         </div>
+
         <div class="field">
           <label for="email">Email</label>
-          <input id="email" type="email" autocomplete="email">
+          <input 
+            id="email" 
+            name="email"
+            type="email" 
+            autocomplete="email"
+            required
+          >
         </div>
+
         <div class="field">
           <label for="message">Your message</label>
-          <textarea id="message"></textarea>
+          <textarea 
+            id="message" 
+            name="message"
+            required
+          ></textarea>
         </div>
-        <button class="btn-send" type="button" onclick="alert('Wire this up to your form handler (Formspree, Netlify Forms, etc.)')">Send</button>
-      </div>
+
+        <button class="btn-send" type="submit">Send</button>
+      </form>
     </div>
   </section>
 
