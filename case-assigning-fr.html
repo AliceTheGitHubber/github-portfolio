@@ -41,7 +41,7 @@
   /* ---------- top bar ---------- */
   .topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;
     gap:16px;padding:15px 28px;background:rgba(251,244,241,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-  .brand{font-family:var(--serif);font-weight:800;font-size:1.3rem;letter-spacing:.2px}
+  .brand{font-family:var(--serif);font-weight:800;font-size:1.5rem;letter-spacing:.2px}
   .brand .dot{color:var(--rasp)}
   .back{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:.9rem;color:var(--wine);
     padding:8px 16px;border:1.5px solid var(--rose-200);border-radius:999px;transition:.2s}
@@ -202,8 +202,12 @@
   .ai .tool{background:#ece6f7;border-color:#d9d3ec;color:#2E2350}
   .ai-close{color:#2E2350}
   .tnav{display:flex;align-items:center;gap:12px}
-  .lang{display:inline-flex;align-items:center;font-weight:700;font-size:.8rem;letter-spacing:.5px;padding:7px 12px;border:1.5px solid rgba(0,0,0,.2);border-radius:999px;color:inherit;transition:.2s}
-  .lang:hover{background:rgba(0,0,0,.06)}
+  .langtoggle{display:inline-flex;align-items:center;gap:2px;padding:3px;border:1.5px solid rgba(0,0,0,.14);border-radius:999px;background:rgba(0,0,0,.04)}
+  .langtoggle a{display:inline-flex;align-items:center;justify-content:center;min-width:34px;padding:5px 11px;font-weight:700;font-size:.78rem;letter-spacing:.5px;color:var(--muted);border-radius:999px;transition:.2s}
+  .langtoggle a:hover{color:var(--ink);background:rgba(0,0,0,.06)}
+  .langtoggle a.is-active{background:var(--ink);color:var(--paper)}
+  .langtoggle a.is-active:hover{background:var(--ink);color:var(--paper)}
+  .langtoggle a:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
   #lb{display:none;position:fixed;inset:0;background:rgba(10,10,14,.9);z-index:200;align-items:center;justify-content:center;padding:24px;cursor:zoom-out}
   #lb img{max-width:min(1100px,94vw);max-height:92vh;border-radius:12px;box-shadow:0 24px 70px rgba(0,0,0,.55)}
   .shot-img img,.pair img{cursor:zoom-in;transition:transform .15s}
@@ -234,7 +238,7 @@
 
   <header class="topbar">
     <a class="brand" href="index-fr.html">Alice Bonneau<span class="dot">.</span></a>
-    <div class="tnav"><a class="lang" href="case-assigning.html">EN</a>
+    <div class="tnav"><div class="langtoggle" role="group" aria-label="Language"><a href="case-assigning.html" lang="en" hreflang="en">EN</a><a class="is-active" aria-current="true" href="case-assigning-fr.html" lang="fr" hreflang="fr">FR</a></div>
     <a class="back" href="index-fr.html#projects">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
       <span class="full">Retour au portfolio</span><span class="short">Portfolio</span>
