@@ -70,7 +70,7 @@
   .nav a:focus-visible{outline:none}
 
   /* NAV STRUCTURE (burger + mobile brand) */
-  .nav-brand{position:absolute;left:24px;top:50%;transform:translateY(-50%);display:inline-block;font-family:var(--serif);font-weight:800;font-size:1.5rem;letter-spacing:.2px;color:var(--white);text-decoration:none;white-space:nowrap;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .4s ease,visibility 0s linear .4s}
+  .nav-brand{position:absolute;left:24px;top:50%;transform:translateY(-50%);display:none;font-family:var(--serif);font-weight:800;font-size:1.5rem;letter-spacing:.2px;color:var(--white);text-decoration:none;white-space:nowrap;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .4s ease,visibility 0s linear .4s}
   .nav-brand::after{display:none}
   .nav .nav-brand.active{color:var(--white)}
   .nav.past-hero .nav-brand{opacity:1;visibility:visible;pointer-events:auto;transition:opacity .4s ease,visibility 0s}
@@ -269,6 +269,15 @@
   }
   .btn-send:hover{background:#2b22b8;transform:translateY(-2px)}
   .btn-send:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+  .btn-send[disabled]{opacity:.65;cursor:default;transform:none}
+  .form-error{margin:16px 0 0;color:#c0392b;font-weight:600;font-size:.95rem}
+  .form-success{text-align:center;padding:20px 6px}
+  .form-success__check{width:66px;height:66px;margin:0 auto 20px;border-radius:50%;background:#e7f7ee;color:#1f9d55;display:flex;align-items:center;justify-content:center;font-size:2.1rem;font-weight:700;animation:formPop .35s ease}
+  .form-success__title{font-family:var(--serif);font-weight:700;font-size:1.55rem;color:var(--ink);margin:0 0 10px}
+  .form-success__text{color:var(--ink);opacity:.8;font-size:1.02rem;margin:0 0 24px}
+  .form-success__again{background:none;border:none;cursor:pointer;color:var(--blue);font-family:var(--sans);font-weight:700;font-size:.95rem;text-decoration:underline;padding:6px}
+  .form-success__again:hover{color:#2b22b8}
+  @keyframes formPop{0%{transform:scale(.6);opacity:0}100%{transform:scale(1);opacity:1}}
 
   footer{background:var(--amber);text-align:center;padding:0 24px 40px;color:rgba(35,27,10,.7);font-size:.92rem}
 
@@ -504,7 +513,8 @@
         </div>
       </div>
 
-      <form action="https://formspree.io/f/mbgreywy" method="POST" class="form-card reveal">
+      <form action="https://formspree.io/f/mbgreywy" method="POST" id="contactForm" class="form-card reveal">
+        <div class="form-fields" id="formFields">
         <div class="field">
           <label for="name">Votre nom</label>
             <input 
@@ -537,6 +547,14 @@
         </div>
 
         <button class="btn-send" type="submit">Envoyer</button>
+          <p class="form-error" id="formError" role="alert" hidden>Une erreur s'est produite — réessayez ou écrivez-moi directement.</p>
+        </div>
+        <div class="form-success" id="formSuccess" role="status" aria-live="polite" hidden>
+          <div class="form-success__check" aria-hidden="true">✓</div>
+          <h3 class="form-success__title">Message envoyé ✓</h3>
+          <p class="form-success__text">Merci pour votre message — je vous réponds très vite.</p>
+          <button type="button" class="form-success__again" id="sendAnother">Envoyer un autre message</button>
+        </div>
       </form>
     </div>
   </section>
@@ -606,6 +624,43 @@
     btn.addEventListener('click',function(){setOpen(!nav.classList.contains('open'));});
     document.addEventListener('keydown',function(e){if(e.key==='Escape')setOpen(false);});
     document.getElementById('navLinks').addEventListener('click',function(e){if(e.target.closest('a'))setOpen(false);});
+  })();
+</script>
+<script>
+  (function(){
+    var form=document.getElementById("contactForm");
+    if(!form) return;
+    var fields=document.getElementById("formFields");
+    var success=document.getElementById("formSuccess");
+    var errBox=document.getElementById("formError");
+    var again=document.getElementById("sendAnother");
+    var btn=form.querySelector(".btn-send");
+    var sending="Envoi\u2026";
+    var original=btn?btn.textContent:"";
+    form.addEventListener("submit",function(e){
+      e.preventDefault();
+      if(!form.reportValidity()) return;
+      if(errBox) errBox.hidden=true;
+      if(btn){btn.disabled=true;btn.textContent=sending;}
+      fetch(form.action,{method:"POST",body:new FormData(form),headers:{"Accept":"application/json"}})
+        .then(function(res){
+          if(res.ok){
+            form.reset();
+            if(fields) fields.hidden=true;
+            if(success){success.hidden=false;success.focus&&success.focus();}
+          } else {
+            if(errBox) errBox.hidden=false;
+          }
+        })
+        .catch(function(){ if(errBox) errBox.hidden=false; })
+        .finally(function(){ if(btn){btn.disabled=false;btn.textContent=original;} });
+    });
+    if(again) again.addEventListener("click",function(){
+      if(success) success.hidden=true;
+      if(fields) fields.hidden=false;
+      var first=form.querySelector("input,textarea");
+      if(first) first.focus();
+    });
   })();
 </script>
 </body>
