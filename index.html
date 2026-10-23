@@ -194,6 +194,7 @@
     gap:26px;
   }
   .card{
+    position:relative;cursor:pointer;
     background:var(--white);color:var(--ink);border-radius:14px;overflow:hidden;
     display:flex;flex-direction:column;
     box-shadow:0 18px 40px rgba(0,0,0,.28);
@@ -208,7 +209,7 @@
     font-size:.82rem;font-weight:500;letter-spacing:.3px;
     padding:8px 16px;border-radius:8px;box-shadow:0 8px 18px rgba(0,0,0,.25);
   }
-  .card-body{padding:26px 24px 24px}
+  .card-body{padding:26px 24px 24px;flex:1;display:flex;flex-direction:column;align-items:flex-start}
   .card-body h3{font-family:var(--serif);font-weight:700;font-size:1.32rem;line-height:1.18;margin-bottom:11px}
   .card-body p{font-size:.92rem;color:#4a4670;margin-bottom:18px}
   .see-more{
@@ -218,6 +219,10 @@
   }
   .see-more:hover{gap:14px;color:#7d6fd0}
   .see-more:focus-visible{outline:2px solid var(--lavender);outline-offset:4px;border-radius:3px}
+  /* Whole card clickable: the link's hit area stretches over the card */
+  .see-more::after{content:"";position:absolute;inset:0;z-index:1}
+  .card:hover .see-more{gap:14px}
+  .card:has(.see-more:focus-visible){outline:2px solid var(--lavender);outline-offset:4px}
   .see-more svg{width:16px;height:16px}
 
   /* thumbnail gradients keyed to each project's real identity color */
